@@ -1,74 +1,49 @@
 #include <iostream>
+#include <limits>
+#include <iomanip>
 using namespace std;
-//*	Объявите глобальную константу для числа pi, равного 3.14159
-const float pi = 3.14159;
-//*	Объявите глобальную константу, которая содержит значения дней в году
-const int numberOfDaysInYear = 364;
-//*	Объявите глобальную константу, которая содержит значения дней в неделе
-const int daysInWeek = 7;
+/* TODO
+Используя заголовочный файл <limits>, std::cout, sizeof() и управляющие последовательности
+cоставьте следующую таблицу
+Тип переменной		|    Размер,	|	    Значение	 	 |  Количество
+|     байт	|  Минимальное	|  Максимальное  | значимых бит
+-------------------------------------------------------------------------------------------
+bool			|	1	|     false	|      true      |	1
+unsigned short		|	2	|	0	|      65535	 |	16
+short
+unsigned int
+int
+unsigned long
+long
+unsigned long long
+long long
+char
+float
+double
+для справки использовать http://www.cplusplus.com/reference/limits/numeric_limits/
+*/
 int main()
 {
-	/* Объявление переменных.
-	* Объявите следующие переменные:
-	* 1. Целочисленная переменная "а";
-	* 2. Беззнаковая целочисленная переменная "b";
-	* 3. Целочисленная переменная "c", размером в два раза меньше, чем значение
-	* типа "int";
-	* 4. Целочисленную переменную "d", размером один байт;
-	* 5. Вещественную переменную "e", размером 4 байта;
-	*/
-	int a;
-	unsigned int b;
-	short int c;
-	char d;
-	float e;
-	/* Инициализация переменных.
-	* Выполните инициализацию переменных следующим образом:
-	* 1. Все биты значения переменной "a" должны назодиться в значении 0;
-	* 2. Все биты значения переменной "b" должны находиться в значении 1;
-	* 3. Переменная "c" должна содержать размер типа "long long";
-	* 4. Переменная "d" должная содержать максимально возможное значение своего
-	* типа;
-	*/
-	int a = 0;
-	int b = 0xFFFFFFFF;
-	long long c = 9LL;
-	unsigned short int d = -1;
-	/* Инициализация переменных с помощью литералов
-	* Выполнить объявление и инициализацию переменных следующим образом
-	* 1. Объявить целочисленную переменную и проинициализировать ее десятичным литералом;
-	* 2. Объявить константную целочисленную переменную, размером в два раза меньше, чем int и проинициализировать ее шестнадцатиричным литералом
-	* 3. Объявить константную целочисленную переменную, размером в два раза больше, чем int и проинициализировать ее восьмиричным литералом
-	* 4. Объявить целочисленную переменную, размером в один байт и проинициализировать ее двоичным литералом
-	* 5. Объявить переменную типа char и проинициализировать ее символом 'f'
-	* 6. Объявить беззнаковую переменную любого типа и проинициализировать ее подходящим литералом
-	* 7. Объявить константную целочисленную переменную, размером в два раза больше, чем int и проинициализировать ее подходящим литералом
-	*/
-	int a = 10;
-	const short int b = 0xABBA;
-	const long int c = 010;
-	char f = 0b11101;
-	char d = 'f';
-	unsigned long d = 10L;
-	const long int e = 10L;
-	/*
-	*	Какой тип переменной был бы правильным для хранения следующей информации?
-	*		ваш возраст
-	*		площадь ващего заднего двора
-	*		количество звезд в галактике
-	*		средний уровень выпадения осадков за январь
-	*
-	*	Создайте подходящие информативные имена переменных для хранения этой информации
-	*/
-	int age;
-	float s;
-	long long starsNumber;
-	float weatherAverenge;
-	/*
-	*	Объявите переменную типа float и инициализируйте ее, используя константу pi.
-	*	Вам необходимо посчитать количество целых недель в году.
-	*	Объявите переменную подходящего типа и проинициализируйте ее с помощью ранее объявленных констант
-	*/
-	float a = pi;
-	float weeksInYear = numberOfDaysInYear / daysInWeek;
-}
+	setlocale(0, ""); // включение адекватного отображения кириллицы в консоль
+	std::cout << std::boolalpha; // настройка консоли, вывод булевых типов как true / false
+	sizeof(int); // возвращает байтовый размер переменной типа int
+	std::numeric_limits<int>::max(); // возвращает максимальное значение которое может хранить переменная типа int
+	std::numeric_limits<int>::min(); // возвращает минимальное значение которое может хранить переменная типа int
+	std::numeric_limits<int>::digits; // возвращает количество значимых бит переменной типа int
+	cout << internal;
+	cout << setw(18) << "Тип переменной" << setw(3) << "|" << setw(10) << "Размер," << setw(3) << "|" << setw(20) << "Значение" << setw(12) << "|" << setw(11) << "Количество" << endl;
+	cout << setw(18) << "" << setw(3) << "|" << setw(8) << "байт" << setw(5) << "|" << setw(13) << "Минимальное" << setw(3) << "|" << setw(13) << "Максимальное" << setw(3) << "|" << setw(7) << "значимых байт" << endl;
+	cout << endl;
+	cout << setw(18) << "bool" << setw(3) << "|" << setw(3) << sizeof(bool) << setw(3) << "|" << setw(20) << numeric_limits<bool>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<bool>::max() << setw(2) << "|" << setw(4) << numeric_limits<bool>::digits << endl;
+	cout << setw(18) << "unsigned short" << setw(3) << "|" << setw(3) << sizeof(unsigned short) << setw(3) << "|" << setw(20) << numeric_limits<unsigned short>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<unsigned short>::max() << setw(2) << "|" << setw(4) << numeric_limits<unsigned short>::digits << endl;
+	cout << setw(18) << "short" << setw(3) << "|" << setw(3) << sizeof(short) << setw(3) << "|" << setw(20) << numeric_limits<short>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<short>::max() << setw(2) << "|" << setw(4) << numeric_limits<short>::digits << endl;
+	cout << setw(18) << "unsigned int" << setw(3) << "|" << setw(3) << sizeof(unsigned int) << setw(3) << "|" << setw(20) << numeric_limits<unsigned int>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<unsigned int>::max() << setw(2) << "|" << setw(4) << numeric_limits<unsigned int>::digits << endl;
+	cout << setw(18) << "int" << setw(3) << "|" << setw(3) << sizeof(int) << setw(3) << "|" << setw(20) << numeric_limits<int>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<int>::max() << setw(2) << "|" << setw(4) << numeric_limits<int>::digits << endl;
+	cout << setw(18) << "unsigned long" << setw(3) << "|" << setw(3) << sizeof(unsigned long) << setw(3) << "|" << setw(20) << numeric_limits<unsigned long>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<unsigned long>::max() << setw(2) << "|" << setw(4) << numeric_limits<unsigned long>::digits << endl;
+	cout << setw(18) << "long" << setw(3) << "|" << setw(3) << sizeof(long) << setw(3) << "|" << setw(20) << numeric_limits<long>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<long>::max() << setw(2) << "|" << setw(4) << numeric_limits<long>::digits << endl;
+	cout << setw(18) << "unsigned long long" << setw(3) << "|" << setw(3) << sizeof(unsigned long long) << setw(3) << "|" << setw(20) << numeric_limits<unsigned long long>::min() << setw(3) << "|" << setw(14) << std::numeric_limits<unsigned long long>::max() << setw(2) << "|" << setw(4) << numeric_limits<unsigned long long>::digits << endl;
+	cout << setw(18) << "long long" << setw(3) << "|" << setw(3) << sizeof(long long) << setw(3) << "|" << setw(20) << numeric_limits<long long>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<long long>::max() << setw(2) << "|" << setw(4) << numeric_limits<long long>::digits << endl;
+	cout << setw(18) << "char" << setw(3) << "|" << setw(3) << sizeof(char) << setw(3) << "|" << setw(20) << numeric_limits<char>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<char>::max() << setw(2) << "|" << setw(4) << numeric_limits<char>::digits << endl;
+	cout << setw(18) << "float" << setw(3) << "|" << setw(3) << sizeof(float) << setw(3) << "|" << setw(20) << numeric_limits<float>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<float>::max() << setw(2) << "|" << setw(4) << numeric_limits<float>::digits << endl;
+	cout << setw(18) << "double" << setw(3) << "|" << setw(3) << sizeof(double) << setw(3) << "|" << setw(20) << numeric_limits<double>::min() << setw(3) << "|" << setw(20) << std::numeric_limits<double>::max() << setw(2) << "|" << setw(4) << numeric_limits<double>::digits << endl;
+	}
