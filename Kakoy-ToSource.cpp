@@ -65,7 +65,7 @@ setlocale(0, "");
 //hours = number / 3600;
 //minutes = (number-hours*3600 )/ 60;
 //seconds = number % 60;
-//cout << hours << ":" << minutes<< ":" << seconds;
+//cout << hours << ":" << minutes / 10 << minutes % 10 << ":" << seconds / 10 << seconds % 10;
 
 /* Упражнение 5
 * На вход дается натуральное число N. Выведите следующее за ним четное число
