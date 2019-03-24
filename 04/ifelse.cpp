@@ -40,19 +40,24 @@ int main(){
 	/*int userNum;
 	cout << "Ну давай, вводи свое число: " << endl;
 	cin >> userNum;
+	if ((userNum <= 10) || (userNum >= 20)) {
 	userNum %= 10;
-	switch (userNum) {
-	case 1:
-		cout << "рубль" << endl;
-		break;
-	case 2:
-	case 3:
-	case 4:
-		cout << "рубля" << endl;
-		break;
-	default:
+		switch (userNum) {
+		case 1:
+			cout << "рубль" << endl;
+			break;
+		case 2:
+		case 3:
+		case 4:
+			cout << "рубля" << endl;
+			break;
+		default:
+			cout << "рублей" << endl;
+			break;
+		}
+	}
+	else {
 		cout << "рублей" << endl;
-		break;
 	}*/
 
 	/* Задание 3
