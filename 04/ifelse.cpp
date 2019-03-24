@@ -50,12 +50,7 @@ int main(){
 	case 4:
 		cout << "рубля" << endl;
 		break;
-	case 5:
-	case 6:
-	case 7:
-	case 8:
-	case 9:
-	case 0:
+	default:
 		cout << "рублей" << endl;
 		break;
 	}*/
