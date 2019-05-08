@@ -6,7 +6,7 @@ int main() {
 	setlocale(0, "");
 	int numOfSimulations = 0, counter = 0, overallSuccsess = 0;
 	bool isEqual;
-	cout << "Ââåäèòå ÷èñëî ñèìóëÿöèé: " << endl;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ ÑÐ¸Ð¼ÑƒÐ»ÑÑ†Ð¸Ð¹: " << endl;
 	cin >> numOfSimulations;
 	struct Date {
 		int day;
@@ -35,15 +35,15 @@ int main() {
 			for (int j = 0; j < 23; j++) {
 				isEqual = ((arrayOfBitrh[c].month == arrayOfBitrh[j].month) && (arrayOfBitrh[c].day == arrayOfBitrh[j].day) && (j != c));
 				if (isEqual) {
-					counter += 1;
-				}
+					overallSuccsess += 1;
+					break;
+				}	
+			}
+			if (isEqual) {
+				break;
 			}
 		}
-		if (counter >= 1) {
-			overallSuccsess += 1;
-			counter = 0;
-		}
 	}
-	cout << "Âñåãî ñèìóëÿöèé ïðîâåäåíî: " << numOfSimulations << endl;
-	cout << "Ñîâïàëè õîòÿ áû äâà äíÿ ðîæäåíèÿ â " << overallSuccsess << " ñèìóëÿöèÿõ. Ïðîöåíò óñïåøíûõ: " << (static_cast<double>(overallSuccsess) / static_cast<double>(numOfSimulations)) * 100 << "%" << endl;
+	cout << "Ð’ÑÐµÐ³Ð¾ ÑÐ¸Ð¼ÑƒÐ»ÑÑ†Ð¸Ð¹ Ð¿Ñ€Ð¾Ð²ÐµÐ´ÐµÐ½Ð¾: " << numOfSimulations << endl;
+	cout << "Ð¡Ð¾Ð²Ð¿Ð°Ð»Ð¸ Ñ…Ð¾Ñ‚Ñ Ð±Ñ‹ Ð´Ð²Ð° Ð´Ð½Ñ Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð² " << overallSuccsess << " ÑÐ¸Ð¼ÑƒÐ»ÑÑ†Ð¸ÑÑ…. ÐŸÑ€Ð¾Ñ†ÐµÐ½Ñ‚ ÑƒÑÐ¿ÐµÑˆÐ½Ñ‹Ñ…: " << (static_cast<double>(overallSuccsess) / static_cast<double>(numOfSimulations)) * 100 << "%" << endl;
 }
