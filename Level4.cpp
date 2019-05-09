@@ -15,7 +15,7 @@ int main() {
 		int day;
 		int month;
 	};
-	while (percentage >= totalPercentage) {
+	while (percentage > totalPercentage) {
 		Date* arrayOfBitrh = new Date[numberOfMembers];
 		for (int i = 0; i < numOfSimulations; i++) {
 			for (int j = 0; j < numberOfMembers; j++) {
@@ -49,7 +49,7 @@ int main() {
 			}
 		}
 		totalPercentage = (static_cast<double>(overallSuccsess) / static_cast<double>(numOfSimulations)) * 100;
-		if (totalPercentage > percentage) {
+		if (totalPercentage >= percentage) {
 			cout << "Данная вероятность достигается в группе размером в " << numberOfMembers << " человек, причем процент совпадение равен " << totalPercentage << "%" << endl;
 		}
 		else {
