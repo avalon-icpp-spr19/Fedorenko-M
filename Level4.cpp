@@ -6,7 +6,7 @@ int main() {
 	setlocale(0, "");
 	int numOfSimulations = 0, counter = 0, overallSuccsess = 0, percentage = 0, numberOfMembers = 1;
 	double totalPercentage = 0;
-	bool isEqual, isBigger;
+	bool isEqual;
 	cout << "Введите желаемый процент: " << endl;
 	cin >> percentage;
 	cout << "Введите число симуляций для каждой группы: " << endl;
